@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Previous Orders</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: #f0f2f5;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .order {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .order-header {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .product {
+      margin-bottom: 15px;
+    }
+
+    .product img {
+      display: block;
+      margin-top: 8px;
+      max-width: 100px;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .no-orders {
+      text-align: center;
+      color: #999;
+      font-size: 20px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 15px 0;
+    }
+
+    
+
+    .back-btn {
+  display: inline-block;
+  background-color: plum;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  text-align: center;
+}
+
+.back-btn:hover {
+  background-color: rgb(103, 20, 103);
+}
+
+
+
+
+
+    .top-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="/cart" class="back-btn">← Back to Cart</a>
+  </div>
+
+  <h1>Previous Orders</h1>
+
+  <div class="container">
+    <% if (message) { %>
+      <p class="no-orders"><%= message %></p>
+    <% } else { %>
+      <% orders.forEach(order => { %>
+        <div class="order">
+          <div class="order-header"><strong>Order placed at:</strong> <%= new Date(order.orderedAt).toLocaleString() %></div>
+          <% order.products.forEach(product => { %>
+            <div class="product">
+              <strong><%= product.productName %></strong> - ₹<%= product.price %><br>
+              <img src="<%= product.image %>" alt="<%= product.productName %>">
+            </div>
+            <hr>
+          <% }); %>
+        </div>
+      <% }); %>
+    <% } %>
+  </div>
+</body>
+</html>
