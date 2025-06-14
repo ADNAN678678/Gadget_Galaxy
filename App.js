@@ -21,7 +21,7 @@ mongoose.connect("mongodb+srv://Adnan:<Adnan@678>@cluster0.t6sxwhb.mongodb.net/P
 mongoose.connect(process.env.MONGO_URL)
 */
 // Connect to MongoDB
-const MONGO_URI = process.env.MONGO_URL || "mongodb+srv://Adnan:Adnan@678@cluster0.t6sxwhb.mongodb.net/Project?retryWrites=true&w=majority&appName=Cluster0";
+const MONGO_URI = process.env.MONGO_URL || "mongodb+srv://Adnan:Adnan%40678@cluster0.t6sxwhb.mongodb.net/Project?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose.connect(MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
