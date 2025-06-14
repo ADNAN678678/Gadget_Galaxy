@@ -14,12 +14,14 @@ app.use(session({
   saveUninitialized: true,
 }));
 
+mongoose.connect("mongodb+srv://Adnan:<Adnan@678>@cluster0.t6sxwhb.mongodb.net/Project?retryWrites=true&w=majority&appName=Cluster0", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+mongoose.connect(process.env.MONGO_URL)
 
 // Connect to MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/Project", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
