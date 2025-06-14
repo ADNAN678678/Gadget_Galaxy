@@ -13,14 +13,19 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }));
-
+/*
 mongoose.connect("mongodb+srv://Adnan:<Adnan@678>@cluster0.t6sxwhb.mongodb.net/Project?retryWrites=true&w=majority&appName=Cluster0", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 mongoose.connect(process.env.MONGO_URL)
-
+*/
 // Connect to MongoDB
+const MONGO_URI = process.env.MONGO_URL || "mongodb+srv://Adnan:Adnan@678@cluster0.t6sxwhb.mongodb.net/Project?retryWrites=true&w=majority&appName=Cluster0";
+
+mongoose.connect(MONGO_URI)
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 
 const db = mongoose.connection;
