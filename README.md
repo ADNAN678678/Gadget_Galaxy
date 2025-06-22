@@ -1,4 +1,4 @@
-# GadgetGalaxy
+# GadgetGalaxy - https://gadgetgalaxy-3s5o.onrender.com/ - Deployed on Render
 
 **GadgetGalaxy** is a full-featured e-commerce web application inspired by Amazon, tailored with my own design and functionality. It offers a smooth online shopping experience for gadgets and electronics, featuring user authentication, product browsing, cart management, order placement, and an admin dashboard for managing customers and inventory.
 
