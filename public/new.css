@@ -1,51 +1,209 @@
-.box{
-    margin-left: 35%;
-    margin-top: 120px;
-    border: 2px solid white;
-    border-radius: 20px;
-    margin-right: 40%;
-    padding: 60px;
-    padding-top: 30px;
-    padding-left: 100px;
-    box-shadow: 2px 2px 20px gray;
+/* ================= GOOGLE FONT ================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
+/* ================= GLOBAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.box:hover{
-    transform: scale(1.1);
-    z-index: 2;
-    transition: 1s ;
-}
-.box h1{
-    margin-left: 30px;
-    color: plum;
-    font-family: 'Times New Roman', Times, serif;
-}
-.box button{
-    margin-left: 40px;
-    margin-top: 20px;
-    background-color: plum;
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #8e2de2, #4a00e0, #ff6ec4, #7873f5);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
     color: white;
-    border: plum;
-    border-radius: 5px;
-    height: 35px;
-    width: 90px;
+}
+
+/* Animated Gradient */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================= REGISTER BOX ================= */
+
+.box {
+    width: 100%;
+    max-width: 420px;
+    padding: 50px 40px;
+    border-radius: 25px;
+
+    /* Glass Effect */
+    backdrop-filter: blur(25px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+    transition: 0.5s ease;
+
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.box:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* ================= HEADING ================= */
+
+.box h1 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* ================= FORM ================= */
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+
+label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* ================= INPUTS ================= */
+
+input {
+    padding: 14px;
+    margin-bottom: 22px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+
+    background: rgba(255,255,255,0.15);
+    color: white;
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s ease;
+}
+
+input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+input:focus {
+    background: rgba(255,255,255,0.25);
+    box-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+/* ================= PREMIUM BUTTON ================= */
+
+button {
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    border: none;
     cursor: pointer;
-    
-}
-.box button:hover{
-    transform: scale(1.2);
-    z-index: 2;
-    transition: 1s ;
-    background-color: white;
-    color: plum;
-    box-shadow: 2px 2px 15px plum;
-}
-.box form input{
-    height: 25px;
-    width: 180px;
 
-}
-font{
-    font-size: larger;
+    background: linear-gradient(135deg, #ffffff, #e0e0ff);
+    color: #4a00e0;
+
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s ease;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
+button:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 20px 45px rgba(255,255,255,0.5);
+}
+
+/* Shine Effect */
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.6),
+        transparent
+    );
+    transform: skewX(-20deg);
+}
+
+button:hover::before {
+    animation: shine 1s forwards;
+}
+
+@keyframes shine {
+    100% { left: 125%; }
+}
+
+/* ================= LINK ================= */
+
+.link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.link a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.link a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 480px) {
+    .box {
+        padding: 35px 25px;
+    }
+
+    .box h1 {
+        font-size: 26px;
+    }
+}

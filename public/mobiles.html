@@ -3,266 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gadget Galaxy</title>
-    <link rel="website icon"  type="png"     href="headlogo4.png">
+    <title>Mobiles - Gadget Galaxy</title>
+    <link rel="website icon" type="png" href="headlogo4.png">
     <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
-    <nav>
-        
-            
-            <li id="m"><a href="">Mobiles</a></li>
-            <li id="p"><a href="products.html">Go Back</a></li>
-        
-    
-    <div class="logo">
-        <a href=""> <img src="logo.png" alt="error" height="60px" width="90px"></a>
-     </div>
-     <div class="heading">
-        <h2>GadgetGalaxy</h2>
-     </div>
-     <div class="cart">
-        <button onclick="location.href='/cart'"><img src="cart.webp" alt="cart" width="50px" height="30px"></button>
-        </div>
-    </nav>
-     
-     
-     <!--   Products    -->
-     <div class="container">
-        
-        
-        <form action="/add-to-cart" method="post">    
-        <div class="box1">
-        <img src="iphone16.webp" alt="error" width="200px" height="200px">
-        <pre><h4>            iphone16 pro max
-    
-            17.4cm(6.3")display'
-                1TB Storage'
-            Price:₹ 1,30,999.00</h4></pre>
-            <input type="hidden" name="productName" value="iphone16 pro max">
-            <input type="hidden" name="price" value="130000">
-            <input type="hidden" name="image" value="iphone16.webp">
-            <button type="submit">Add to Cart</button>
-        </div>
-        </form>
 
+<!-- ================= NAVBAR ================= -->
+<nav class="nav">
+    <div class="nav-left">
+        <img src="logo.png" class="logo">
+        <h2>Mobiles</h2>
+    </div>
 
-        <form action="/add-to-cart" method="post">
-        <div class="box2">
-            <img src="iqqo.webp" alt="error" width="200px" height="200px">
-            <pre><h4>              iQOO Neo 10R 5G
-        
-        8GB RAM , 128GB Storage'
-Snapdragon 8s Gen 3 Processor'
-             Price:₹ 27,999.00</h4></pre>
-            <input type="hidden" name="productName" value="iQOO Neo 10R 5G">
-            <input type="hidden" name="price" value="27999">
-            <input type="hidden" name="image" value="iqqo.webp">
-            <button type="submit">Add to Cart</button>
-            </div>
-            </form>
+    <ul class="nav-links">
+        <li><a href="/products.html">Go Back</a></li>
+    </ul>
 
+    <div class="cart">
+        <button onclick="location.href='/cart'">
+            <img src="cart.webp" alt="cart">
+        </button>
+    </div>
+</nav>
 
-            <form action="/add-to-cart" method="post">
-            <div class="box3">
-                <img src="redmi14.webp" alt="error" width="200px" height="200px">
-                <pre><h4>             Redmi Note 14 5G
-            
-        6GB RAM 128GB Storage'
-    Global Debut MTK Dimensity'
-              Price:₹ 18,999.00</h4></pre>
-              <input type="hidden" name="productName" value="Redmi Note 14 5G">
-            <input type="hidden" name="price" value="18999">
-            <input type="hidden" name="image" value="redmi14.webp">
-            <button type="submit">Add to Cart</button>
-            
-                </div>
-                </form>
+<!-- ================= PRODUCTS GRID ================= -->
+<section class="products-container">
 
+<!-- iPhone 16 -->
+<form action="/add-to-cart" method="post" class="product-card">
+    <img src="iphone16.webp">
+    <h4>iPhone 16 Pro Max</h4>
+    <p>6.3" Display • 1TB Storage</p>
+    <span>₹1,30,999</span>
+    <input type="hidden" name="productName" value="iphone16 pro max">
+    <input type="hidden" name="price" value="130000">
+    <input type="hidden" name="image" value="iphone16.webp">
+    <button type="submit">Add to Cart</button>
+</form>
 
-                <form action="/add-to-cart" method="post">
-            <div class="box4">
-                    <img src="oneplus13.webp" alt="error" width="200px" height="200px">
-                    <pre><h4>                 OnePlus 13R 
-                
-        12GB RAM, 256GB Storage'
-          Smarter with OnePlus AI'
-              Price:₹ 43,999.00</h4></pre>
-              <input type="hidden" name="productName" value="OnePlus 13R">
-            <input type="hidden" name="price" value="43999">
-            <input type="hidden" name="image" value="oneplus13.webp">
-            <button type="submit">Add to Cart</button>
-                    
-                    </div>
-                    </form>
+<form action="/add-to-cart" method="post" class="product-card">
+    <img src="iqqo.png">
+    <h4>iQOO Neo 10R 5G</h4>
+    <p>8GB RAM • Snapdragon 8s Gen 3</p>
+    <span>₹27,999</span>
+    <input type="hidden" name="productName" value="iQOO Neo 10R 5G">
+    <input type="hidden" name="price" value="27999">
+    <input type="hidden" name="image" value="iqqo.png">
+    <button type="submit">Add to Cart</button>
+</form>
 
+<form action="/add-to-cart" method="post" class="product-card">
+    <img src="redmi14.png">
+    <h4>Redmi Note 14 5G</h4>
+    <p>6GB RAM • Dimensity</p>
+    <span>₹18,999</span>
+    <input type="hidden" name="productName" value="Redmi Note 14 5G">
+    <input type="hidden" name="price" value="18999">
+    <input type="hidden" name="image" value="redmi14.png">
+    <button type="submit">Add to Cart</button>
+</form>
 
-                 <!--2nd Row-->
-                 <form action="/add-to-cart" method="post">
-                    <div class="box1">
-                        <img src="moto.jpg" alt="error" width="200px" height="200px">
-                        <pre><h4>     Motorola Edge 50 Fusion 5G 
-                    
-      12GB RAM, 256GB Storage'
-                Android 13.0'
-            Price:₹ 24,200.00</h4></pre>
-            <input type="hidden" name="productName" value="Motorola Edge 50 Fusion 5G">
-            <input type="hidden" name="price" value="24200">
-            <input type="hidden" name="image" value="moto.jpg">
-            <button type="submit">Add to Cart</button>
-                </div>
-                </form>
-                        
+<form action="/add-to-cart" method="post" class="product-card">
+    <img src="oneplus13.png">
+    <h4>OnePlus 13R</h4>
+    <p>12GB RAM • OnePlus AI</p>
+    <span>₹43,999</span>
+    <input type="hidden" name="productName" value="OnePlus 13R">
+    <input type="hidden" name="price" value="43999">
+    <input type="hidden" name="image" value="oneplus13.png">
+    <button type="submit">Add to Cart</button>
+</form>
 
-                <form action="/add-to-cart" method="post">
-                        <div class="box2">
-                            <img src="vivo.jpg" alt="error" width="200px" height="200px">
-                            <pre><h4>                  Vivo V40e 5G 
-                        
-        8GB RAM, 256GB Storage'
-              80W fast charging '
-            Price:₹ 28,999.00</h4></pre>
-            <input type="hidden" name="productName" value="Vivo V40e 5G">
-            <input type="hidden" name="price" value="28999">
-            <input type="hidden" name="image" value="vivo.jpg">
-            <button type="submit">Add to Cart</button>   
-                            </div>
-                            </form>
+<form action="/add-to-cart" method="post" class="product-card">
+    <img src="moto.png">
+    <h4>Motorola Edge 50 Fusion</h4>
+    <p>12GB RAM • Android 13</p>
+    <span>₹24,200</span>
+    <input type="hidden" name="productName" value="Motorola Edge 50 Fusion 5G">
+    <input type="hidden" name="price" value="24200">
+    <input type="hidden" name="image" value="moto.png">
+    <button type="submit">Add to Cart</button>
+</form>
 
+<form action="/add-to-cart" method="post" class="product-card">
+    <img src="vivo.png">
+    <h4>Vivo V40e 5G</h4>
+    <p>80W Fast Charging</p>
+    <span>₹28,999</span>
+    <input type="hidden" name="productName" value="Vivo V40e 5G">
+    <input type="hidden" name="price" value="28999">
+    <input type="hidden" name="image" value="vivo.png">
+    <button type="submit">Add to Cart</button>
+</form>
 
-                            <form action="/add-to-cart" method="post">
-                            <div class="box3">
-                                <img src="S25.jpg" alt="error" width="200px" height="200px">
-                                <pre><h4>           Samsung S25 ultra
-                             
-                19.5cm display'
-                1TB Storage'
-            Price:₹ 1,40,000.00</h4></pre>
-            <input type="hidden" name="productName" value="Samsung S25 ultra">
-            <input type="hidden" name="price" value="140000">
-            <input type="hidden" name="image" value="S25.jpg">
-            <button type="submit">Add to Cart</button>
-                                </div>
-                                </form>
+<form action="/add-to-cart" method="post" class="product-card">
+    <img src="S25.png">
+    <h4>Samsung S25 Ultra</h4>
+    <p>1TB Storage</p>
+    <span>₹1,40,000</span>
+    <input type="hidden" name="productName" value="Samsung S25 ultra">
+    <input type="hidden" name="price" value="140000">
+    <input type="hidden" name="image" value="S25.png">
+    <button type="submit">Add to Cart</button>
+</form>
 
+<form action="/add-to-cart" method="post" class="product-card">
+    <img src="iqqo13.png">
+    <h4>iQOO 13 5G</h4>
+    <p>16GB RAM • Snapdragon 8 Elite</p>
+    <span>₹51,999</span>
+    <input type="hidden" name="productName" value="iQOO 13 5G">
+    <input type="hidden" name="price" value="51999">
+    <input type="hidden" name="image" value="iqqo13.png">
+    <button type="submit">Add to Cart</button>
+</form>
 
+<form action="/add-to-cart" method="post" class="product-card">
+    <img src="oneplusnord.png">
+    <h4>OnePlus Nord 4</h4>
+    <p>12GB RAM • 256GB</p>
+    <span>₹30,000</span>
+    <input type="hidden" name="productName" value="OnePlus Nord 4">
+    <input type="hidden" name="price" value="30000">
+    <input type="hidden" name="image" value="oneplusnord.png">
+    <button type="submit">Add to Cart</button>
+</form>
 
+<form action="/add-to-cart" method="post" class="product-card">
+    <img src="iphonese.png">
+    <h4>iPhone 16 SE</h4>
+    <p>A18 Chip • 128GB</p>
+    <span>₹56,799</span>
+    <input type="hidden" name="productName" value="iPhone16se">
+    <input type="hidden" name="price" value="56799">
+    <input type="hidden" name="image" value="iphonese.png">
+    <button type="submit">Add to Cart</button>
+</form>
 
-                            <form action="/add-to-cart" method="post">
-                            <div class="box4">
-                                    <img src="iqqo13.jpg" alt="error" width="200px" height="200px">
-                                    <pre><h4>                  iQOO 13 5G
-                                
-        16GB RAM, 512GB Storage'
-            Snapdragon 8 Elite'
-               Price:₹ 51,999.00</h4></pre>
-               <input type="hidden" name="productName" value="iQOO 13 5G">
-            <input type="hidden" name="price" value="51999">
-            <input type="hidden" name="image" value="iqqo13.jpg">
-            <button type="submit">Add to Cart</button>
-                                    </div>
-                                    </form>
+<form action="/add-to-cart" method="post" class="product-card">
+    <img src="i15plus.png">
+    <h4>iPhone 15 Plus</h4>
+    <p>A16 Bionic • 128GB</p>
+    <span>₹74,899</span>
+    <input type="hidden" name="productName" value="iPhone15Plus">
+    <input type="hidden" name="price" value="74899">
+    <input type="hidden" name="image" value="i15plus.png">
+    <button type="submit">Add to Cart</button>
+</form>
 
+<form action="/add-to-cart" method="post" class="product-card">
+    <img src="i13.png">
+    <h4>iPhone 13</h4>
+    <p>A15 Bionic • 128GB</p>
+    <span>₹43,899</span>
+    <input type="hidden" name="productName" value="iPhone13">
+    <input type="hidden" name="price" value="43899">
+    <input type="hidden" name="image" value="i13.png">
+    <button type="submit">Add to Cart</button>
+</form>
 
+</section>
 
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <div>
+        <img src="logo.png" height="60px">
+        <p>
+            At Gadget Galaxy, we’re passionate about technology and 
+            bringing you the best gadgets available.
+        </p>
+    </div>
+    <a href="#">Back To Top</a>
+</footer>
 
-
-            <!--3rd row-->
-            <form action="/add-to-cart" method="post">
-            <div class="box1">
-                <img src="oneplusnord.png" alt="error" width="200px" height="200px">
-                <pre><h4>               OnePlus Nord 4 
-            
-    12 GB RAM + 256 GB Storage'
-                16.26cm display'
-                Price:₹ 30,000.00</h4></pre>
-                <input type="hidden" name="productName" value="OnePlus Nord 4">
-                <input type="hidden" name="price" value="30000">
-                <input type="hidden" name="image" value="oneplusnord.png">
-                <button type="submit">Add to Cart</button>  
-                </div>
-                </form>
-
-
-                <form action="/add-to-cart" method="post">
-                <div class="box2">
-                    <img src="iphonese.jpg" alt="error" width="200px" height="200px">
-                    <pre><h4>                    iPhone16se
-                
-              A18 Chip , 128GB'
-             6.1 Inches display'
-                Price:56,799.00'</h4></pre>
-                <input type="hidden" name="productName" value="iPhone16se">
-                <input type="hidden" name="price" value="56799">
-                <input type="hidden" name="image" value="iphonese.jpg">
-                <button type="submit">Add to Cart</button> 
-                    </div>
-                    </form>
-
-
-                    <form action="/add-to-cart" method="post">
-                    <div class="box3">
-                        <img src="i15plus.jpg" alt="error" width="200px" height="200px">
-                        <pre><h4>              iPhone 15 Plus
-                     
-           A16 Bionic , 128GB'
-            6.7 Inches display'
-           Price:₹ 74,899.00      </h4></pre>
-           <input type="hidden" name="productName" value="iPhone15Plus">
-           <input type="hidden" name="price" value="74899">
-           <input type="hidden" name="image" value="i15plus.jpg">
-           <button type="submit">Add to Cart</button>
-                        </div>
-                    </form>
-
-
-                    <form action="/add-to-cart" method="post">
-                    <div class="box4">
-                            <img src="i13.jpg" alt="error" width="200px" height="200px">
-                            <pre><h4>                    iPhone 13
-                        
-             A15 Bionic , 128GB'
-            6.1 Inches display'
-             Price:₹ 43,899.00</h4></pre>
-             <input type="hidden" name="productName" value="iPhone13">
-           <input type="hidden" name="price" value="43899">
-           <input type="hidden" name="image" value="i13.jpg">
-           <button type="submit">Add to Cart</button>
-                   
-                            </div>
-                            </form>
-
-
-
-<!--Rows ended-->
-
-        <!----------------Footer------------------>
-
-        <div class="footer">
-            <div class="footerlogo">
-                <img src="logo.png" height="60px"></div>
-               <div class="footerlogodown"> <pre><p>At Gadget Galaxy, we’re passionate about technology and 
-                bringing you the best gadgets available.</p></pre>
-            </div>
-            <div class="footnav">
-                <a href="#">Back To Top</a>
-                
-            </div>
-           
-        </div>
-
-    
-           
-       
-    
-
-
-
-
-
-
-
-
-</form></div>
 </body>
 </html>

@@ -1,209 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cart - GadgetGalaxy</title>
-  <style>
-    body {
-      text-align: center;
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-    }
-    h1 {
-      margin-top: 30px;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      margin: 20px auto;
-      background-color: #fff;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      display: inline-block;
-      width: 300px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    li:hover {
-      transform: scale(1.05);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-    img {
-      display: block;
-      margin: 0 auto 10px;
-    }
-    form {
-      margin-top: 10px;
-    }
-    button {
-      padding: 6px 12px;
-      font-size: 14px;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-      background-color: plum;
-      color: white;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #68117d;
-    }
-    .total {
-      margin-top: 30px;
-      font-size: 22px;
-      font-weight: bold;
-      color: #333;
-      background-color: #fff;
-      display: inline-block;
-      padding: 15px 30px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .back-btn {
-      margin-top: 20px;
-    }
-    .back-btn a {
-      text-decoration: none;
-    }
-    .back-btn-button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 10px;
-      border: none;
-      background-color: plum;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .back-btn-button:hover {
-      background-color: rgb(126, 20, 126);
-    }
-    .order-form {
-      margin-top: 40px;
-      background-color: #fff;
-      padding: 25px;
-      display: inline-block;
-      text-align: center;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .order-form h2 {
-      margin-bottom: 20px;
-      color: #333;
-    }
-    .order-form input,
-    .order-form textarea {
-      width: 280px;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
-      font-family: inherit;
-    }
-    .order-form button {
-      background-color: plum;
-      color: white;
-      padding: 10px 20px;
-      font-size: 15px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .order-form button:hover {
-      background-color: rgb(126, 20, 126);
-    }
-  </style>
+<style>
+  /* ================= GOOGLE FONT ================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+/* ================= GLOBAL ================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #8e2de2, #4a00e0, #ff6ec4, #7873f5);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  color: white;
+  overflow-x: hidden;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================= TOP BAR ================= */
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.top-bar h1 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* Logout Button */
+.top-bar button {
+  padding: 12px 30px;
+  border-radius: 60px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ffffff, #e0e0ff);
+  color: #4a00e0;
+  transition: 0.4s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.top-bar button:hover {
+  transform: translateY(-4px) scale(1.07);
+  box-shadow: 0 20px 45px rgba(255,255,255,0.6);
+}
+
+/* ================= CART ================= */
+
+.cart-container {
+  padding: 80px 8%;
+}
+
+/* Grid */
+.cart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px;
+}
+
+/* Card */
+.cart-item {
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.08);
+  border-radius: 25px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  transition: 0.4s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+}
+
+.cart-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  transition: 0.4s;
+}
+
+.cart-item:hover img {
+  transform: scale(1.1);
+}
+
+.cart-item h4 {
+  margin: 18px 0 10px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.cart-item span {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Remove Button */
+.cart-item button {
+  padding: 10px 25px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  color: white;
+  transition: 0.4s;
+}
+
+.cart-item button:hover {
+  transform: scale(1.1);
+}
+
+/* ================= TOTAL ================= */
+
+.total-box {
+  margin-top: 50px;
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.08);
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* ================= BACK BUTTON ================= */
+
+.center-btn {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.center-btn button {
+  padding: 14px 35px;
+  border-radius: 60px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ffffff, #e0e0ff);
+  color: #4a00e0;
+  transition: 0.4s;
+}
+
+.center-btn button:hover {
+  transform: translateY(-4px) scale(1.07);
+}
+
+/* ================= ORDER SECTION ================= */
+
+.order-section {
+  margin-top: 80px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+/* Form Glass Box */
+.form-box {
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.08);
+  padding: 35px;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  transition: 0.4s;
+}
+
+.form-box:hover {
+  transform: translateY(-8px);
+}
+
+.form-box h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Inputs */
+.form-box input,
+.form-box textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+/* Submit Button */
+.form-box button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 60px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ffffff, #e0e0ff);
+  color: #4a00e0;
+  transition: 0.4s;
+}
+
+.form-box button:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+</style>
 </head>
 <body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
   <h1>Your Cart</h1>
-  <% if (typeof message !== "undefined" && message) { %>
-    <p style="color: red;"><%= message %></p>
-  <% } %>
-  
-  <% if (cart && cart.length > 0) { 
-       let total = 0;
+
+  <form action="/logout" method="GET">
+    <button type="submit">Log Out</button>
+  </form>
+</div>
+
+<div class="cart-container">
+
+<% if (typeof message !== "undefined" && message) { %>
+  <p style="color:red; text-align:center; margin-bottom:20px;"><%= message %></p>
+<% } %>
+
+<% if (cart && cart.length > 0) { 
+     let total = 0;
+%>
+
+<div class="cart-grid">
+  <% cart.forEach((item, index) => {
+       total += Number(item.price);
   %>
-    <ul>
-      <% cart.forEach((item, index) => {
-           total += Number(item.price);
-      %>
-        <li>
-          <img src="<%= item.image %>" width="100" height="100">
-          <strong><%= item.productName %></strong><br>
-          ₹<%= item.price %>
-          <form action="/remove-from-cart" method="POST" style="display:inline;">
-            <input type="hidden" name="index" value="<%= index %>">
-            <button type="submit">Remove</button>
-          </form>
-        </li>
-      <% }); %>
-    </ul>
 
-    <div class="total">
-      Total Price: ₹<%= total %>
-    </div>
+  <div class="cart-item">
+    <img src="<%= item.image %>">
+    <h4><%= item.productName %></h4>
+    <span>₹<%= item.price %></span>
 
-    <div class="back-btn">
-      <a href="/products.html">
-        <button class="back-btn-button">← Back to Products</button>
-      </a>
-    </div>
+    <form action="/remove-from-cart" method="POST">
+      <input type="hidden" name="index" value="<%= index %>">
+      <button type="submit">Remove</button>
+    </form>
+  </div>
 
-  <% } else { %>
-    <p>Your cart is empty.</p>
-    <div class="back-btn">
-      <a href="/products.html">
-        <button class="back-btn-button">← Back to Products</button>
-      </a>
-    </div>
-  <% } %>
+  <% }); %>
+</div>
 
-  <!-- Order Form -->
-  <div class="order-form">
+<div class="total-box">
+  Total Price: ₹<%= total %>
+</div>
+
+<div class="center-btn">
+  <a href="/products.html">
+    <button>← Back to Products</button>
+  </a>
+</div>
+
+<% } else { %>
+
+<p style="text-align:center; margin-top:30px;">Your cart is empty.</p>
+
+<div class="center-btn">
+  <a href="/products.html">
+    <button>← Back to Products</button>
+  </a>
+</div>
+
+<% } %>
+
+<!-- ORDER + VIEW SECTION -->
+<div class="order-section">
+
+  <!-- PLACE ORDER -->
+  <div class="form-box">
     <h2>Place Your Order</h2>
     <form action="/submit-order" method="POST">
-      <input type="text" name="username" placeholder="Enter your username" required><br>
-      <input type="number" name="phone" placeholder="Phone number" required><br>
-      <textarea name="address" placeholder="Delivery address" rows="4" required></textarea><br>
+      <input type="text" name="username" placeholder="Enter your username" required>
+      <input type="number" name="phone" placeholder="Phone number" required>
+      <textarea name="address" placeholder="Delivery address" rows="4" required></textarea>
       <button type="submit">Submit Order</button>
     </form>
   </div>
 
-
-
-  <div class="back-btn">
-    <form action="/orders" method="POST" style="display: inline-block; background-color: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-top: 30px;">
-      <input 
-        type="text" 
-        name="username" 
-        placeholder="Enter your username" 
-        required 
-        style="padding: 10px; width: 250px; font-size: 14px; border-radius: 8px; border: 1px solid #ccc; margin-right: 10px;"
-      >
-      <button 
-        type="submit" 
-        style="padding: 10px 20px; font-size: 15px; background-color: plum; color: white; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;"
-      >
-        View Previous Orders
-      </button>
+  <!-- VIEW PREVIOUS ORDERS -->
+  <div class="form-box">
+    <h2>View Previous Orders</h2>
+    <form action="/orders" method="post">
+      <input type="text" name="username" placeholder="Enter your username" required>
+      <button type="submit">View Orders</button>
     </form>
   </div>
-  
-  <div style="position: absolute; top: 20px; right: 30px;">
-    <form action="/logout" method="GET">
-      <button 
-        type="submit" 
-        style="padding: 8px 16px; font-size: 14px; border: none; border-radius: 8px; background-color: #c94fcf; color: white; cursor: pointer; transition: background-color 0.3s ease;"
-      >
-        Log Out
-      </button>
-    </form>
-  </div>
-  
-  
+
+</div>
+
+</div>
+
 </body>
 </html>

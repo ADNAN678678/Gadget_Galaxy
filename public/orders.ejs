@@ -1,122 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Previous Orders</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 40px 20px;
-      background-color: #f0f2f5;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Previous Orders - GadgetGalaxy</title>
 
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #333;
-    }
+<style>
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+/* ================= GOOGLE FONT ================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
-    .order {
-      border: 1px solid #ccc;
-      padding: 20px;
-      border-radius: 12px;
-      background-color: #ffffff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    }
+/* ================= GLOBAL ================= */
 
-    .order-header {
-      font-size: 16px;
-      color: #666;
-      margin-bottom: 15px;
-    }
-
-    .product {
-      margin-bottom: 15px;
-    }
-
-    .product img {
-      display: block;
-      margin-top: 8px;
-      max-width: 100px;
-      height: auto;
-      border-radius: 5px;
-    }
-
-    .no-orders {
-      text-align: center;
-      color: #999;
-      font-size: 20px;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid #eee;
-      margin: 15px 0;
-    }
-
-    
-
-    .back-btn {
-  display: inline-block;
-  background-color: plum;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
-  text-align: center;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.back-btn:hover {
-  background-color: rgb(103, 20, 103);
+body{
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #8e2de2, #4a00e0, #ff6ec4, #7873f5);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  color:white;
+  padding:60px 8%;
 }
 
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
+/* ================= TOP BAR ================= */
 
+.top-bar{
+  text-align:center;
+  margin-bottom:50px;
+}
 
+.back-btn{
+  display:inline-block;
+  padding:14px 35px;
+  border-radius:60px;
+  text-decoration:none;
+  font-weight:600;
+  background: linear-gradient(135deg, #ffffff, #e0e0ff);
+  color:#4a00e0;
+  transition:0.4s;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
 
-    .top-bar {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-  </style>
+.back-btn:hover{
+  transform:translateY(-5px) scale(1.07);
+  box-shadow:0 20px 45px rgba(255,255,255,0.6);
+}
+
+/* ================= HEADING ================= */
+
+h1{
+  text-align:center;
+  margin-bottom:60px;
+  font-size:38px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+}
+
+/* ================= ORDER CARD ================= */
+
+.order{
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.08);
+  padding:35px;
+  border-radius:25px;
+  border:1px solid rgba(255,255,255,0.2);
+  box-shadow:0 25px 60px rgba(0,0,0,0.5);
+  transition:0.4s ease;
+}
+
+.order:hover{
+  transform:translateY(-10px);
+}
+
+/* Order Header */
+.order-header{
+  font-size:14px;
+  opacity:0.8;
+  margin-bottom:25px;
+}
+
+/* ================= PRODUCT ================= */
+
+.product{
+  display:flex;
+  align-items:center;
+  gap:25px;
+  margin-bottom:20px;
+  padding:15px;
+  border-radius:20px;
+  background: rgba(255,255,255,0.05);
+  transition:0.4s;
+}
+
+.product:hover{
+  transform:scale(1.03);
+  background: rgba(255,255,255,0.1);
+}
+
+/* Image */
+.product img{
+  width:120px;
+  height:120px;
+  object-fit:contain;
+  border-radius:15px;
+  transition:0.4s;
+}
+
+.product:hover img{
+  transform:scale(1.1);
+}
+
+/* Details */
+.product-details{
+  font-size:16px;
+}
+
+.product-details strong{
+  display:block;
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+/* Divider */
+hr{
+  border:none;
+  border-top:1px solid rgba(255,255,255,0.2);
+  margin:20px 0;
+}
+
+/* ================= EMPTY MESSAGE ================= */
+
+.no-orders{
+  text-align:center;
+  font-size:20px;
+  margin-top:60px;
+  opacity:0.8;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+  body{
+    padding:40px 5%;
+  }
+
+  h1{
+    font-size:28px;
+  }
+
+  .product{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .product img{
+    width:90px;
+    height:90px;
+  }
+
+}
+
+</style>
 </head>
+
 <body>
-  <div class="top-bar">
-    <a href="/cart" class="back-btn">← Back to Cart</a>
-  </div>
 
-  <h1>Previous Orders</h1>
 
-  <div class="container">
-    <% if (message) { %>
-      <p class="no-orders"><%= message %></p>
-    <% } else { %>
-      <% orders.forEach(order => { %>
-        <div class="order">
-          <div class="order-header"><strong>Order placed at:</strong> <%= new Date(order.orderedAt).toLocaleString() %></div>
-          <% order.products.forEach(product => { %>
-            <div class="product">
-              <strong><%= product.productName %></strong> - ₹<%= product.price %><br>
-              <img src="<%= product.image %>" alt="<%= product.productName %>">
-            </div>
-            <hr>
-          <% }); %>
+<div class="top-bar">
+  <a href="/cart" class="back-btn">← Back to Cart</a>
+</div>
+
+<h1>Previous Orders</h1>
+
+<div class="container">
+  <% if (message) { %>
+    <p class="no-orders"><%= message %></p>
+  <% } else { %>
+    <% orders.forEach(order => { %>
+      <div class="order">
+        <div class="order-header">
+          <strong>Order placed at:</strong> 
+          <%= new Date(order.orderedAt).toLocaleString() %>
         </div>
-      <% }); %>
-    <% } %>
-  </div>
+
+        <% order.products.forEach(product => { %>
+          <div class="product">
+            <img src="<%= product.image %>" alt="<%= product.productName %>">
+            <div class="product-details">
+              <strong><%= product.productName %></strong>
+              ₹<%= product.price %>
+            </div>
+          </div>
+          <hr>
+        <% }); %>
+
+      </div>
+    <% }); %>
+  <% } %>
+</div>
+
 </body>
 </html>

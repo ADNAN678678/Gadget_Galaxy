@@ -4,34 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gadget Galaxy</title>
-    <link rel="website icon"  type="png"     href="headlogo4.png">
+    <link rel="website icon" type="png" href="headlogo4.png">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-   
-    <div class="box">
-       <h1>Sign Up</h1><br>
-      <font><form action="/login" method="post">
-                
-                <label>Username :</label><br><br>
-                <input type="text" id="loginId" name="loginId" required/><br><br>
-                
-                
-                <label>Password :</label><br><br>
-                <input type="password" id="password" name="password" required/><br><br>
-                
-                <button>Login</button></font><br><br><br>
 
-                <a href="new.html" target="_top">Create a new Account</a>
+    <div class="container">
+        <div class="box">
+            <h1>Login</h1>
+
+            <form action="/login" method="post">
                 
+                <label>Username</label>
+                <input type="text" id="loginId" name="loginId" required/>
+                
+                <label>Password</label>
+                <input type="password" id="password" name="password" required/>
+                
+                <button type="submit">Login</button>
+
+                <div class="link">
+                    <a href="new.html">Create a new Account</a>
+                </div>
+
                 <% if (message) { %>
-                    <p style="color: red;margin-left: 20px;"><%= message %></p>
+                    <p class="error"><%= message %></p>
                 <% } %>
-                
-
-       </form>
+            </form>
+        </div>
     </div>
 
-   
 </body>
 </html>
