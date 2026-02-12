@@ -168,6 +168,10 @@ app.get("/home", (req, res) => {
   res.render("main");
 });
 
+app.get("/products", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "products.html"));
+});
+
 /* ---------- Contact ---------- */
 
 app.get("/contact", (req, res) => {
