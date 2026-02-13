@@ -331,3 +331,14 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.hero-image::before {
+    pointer-events: none;
+}
+.hero-image {
+    z-index: 0;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+}
